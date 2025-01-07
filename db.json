@@ -1,0 +1,16 @@
+{
+    "says": [
+      {
+        "id": 1,
+        "title": "First Say",
+        "note": "This is the first say in the system.",
+        "date": "2025-01-01"
+      },
+      {
+        "id": 2,
+        "title": "Second Say",
+        "note": "This is another example of a say.",
+        "date": "2025-01-02"
+      }
+    ]
+  }

@@ -6,11 +6,36 @@ const Home = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-pink-200">
+      <style>
+        {`
+          @keyframes spin {
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(360deg);
+            }
+          }
+          
+          .spin {
+            animation: spin 6s linear infinite;
+          }
+        `}
+      </style>
       {/* Heading */}
-      <h1 className="text-4xl font-bold text-gray-800 mb-8">
-        Selamat Datang di <span className="text-pink-500">SendASay</span>
-      </h1>
-      
+      <div className="flex items-center mb-8">
+        <img
+          src="notes.jpg"
+          alt="Logo"
+          className="w-16 h-16 mr-4 spin"
+        />
+        <div>
+          <h1 className="text-3xl font-bold text-gray-800 mb-2">
+            Welcome To
+          </h1>
+          <h1 className="text-5xl font-bold text-pink-500">SendASay</h1>
+        </div>
+      </div>
       {/* Buttons */}
       <div className="flex space-x-8">
         <button

@@ -1,9 +1,8 @@
-function Edit() {
+export const CreateSay = () => {
   const { id } = useParams();
-  const { says, setSays } = useContext(SayContext);
   const [title, setTitle] = useState('');
   const [note, setNote] = useState('');
-  const [error, setError] = useState('');
+  const { says, setSays } = useContext(SayContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -16,17 +15,14 @@ function Edit() {
     }
   }, [id, says]);
 
-  const handleSubmit = (e) => {
+  const handleUpdate = (e) => { 
     e.preventDefault();
-
-    // Validasi
-    if (title.trim() === '' || note.trim() === '') {
-      setError('Title and Note cannot be empty!');
-      return;
-    }
-
     const newSays = [...says];
-    newSays[id] = { title, note };
+    if (id) {
+      newSays[id] = { title, note };
+    } else {
+      newSays.push({ title, note });
+    }
     setSays(newSays);
     navigate('/view');
   };
@@ -35,10 +31,7 @@ function Edit() {
     <div className="flex flex-col items-center justify-center min-h-screen bg-blue-100">
       <div className="w-full max-w-2xl p-4 bg-white rounded-lg shadow-md">
         <h1 className="text-3xl font-bold text-center mb-6">{id ? 'Edit Say' : 'Create Say'}</h1>
-        {error && (
-          <p className="mb-4 text-red-500 text-center">{error}</p>
-        )}
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleUpdate}>
           <div className="mb-4">
             <label className="block text-lg font-semibold text-gray-700 mb-2">Subject:</label>
             <input 
@@ -68,6 +61,4 @@ function Edit() {
       </div>
     </div>
   );
-}
-
-export default Edit;
+};

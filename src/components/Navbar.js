@@ -1,16 +1,21 @@
-import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-function Navbar() {
-    return (
-        <nav className="bg-white shadow-md">
-            <div className="container mx-auto p-4 flex justify-between items-center">
-                <Link to="/" className="text-2xl fron-blod text-pink-300">Say Management</Link>
-                <div className="space-x-4">
-                    <Link to="/Say" className="text-gray-600 hover:text-blue-600">Say</Link>
-                    <Link to="/Create-Say" className="text-gray-600 hover:text-pink-300">Create Say</Link>
-                </div>
-            </div>
-        </nav>
-    )
-}
+const Navbar = () => {
+  return (
+    <nav className="bg-pink-400 text-white p-1">
+      <div className="container mx-auto flex justify-between items-center">
+        <div className="logo-container flex items-center">
+          <img src={`${process.env.PUBLIC_URL}/notes.jpg`} alt="Deskripsi gambar" className="gambar-kecil mr-1 w-10" />
+          <h1 className="text-lg font-bold">SendASay</h1>
+        </div>
+        <div>
+          <Link to="/" className="hover:underline">
+            Home
+          </Link>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
